@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "CenterViewController.h"
+#import "LeftViewController.h"
+#import "WHSlideViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    CenterViewController  *centerVC = [[CenterViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:centerVC];
+    LeftViewController    *leftVC   = [[LeftViewController alloc]init];
+    WHSlideViewController *mainVC   = [[WHSlideViewController alloc]initWithLeftVC:leftVC CenterVC:nav];
+    
+    self.window.rootViewController = mainVC;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

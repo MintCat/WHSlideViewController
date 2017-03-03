@@ -15,6 +15,10 @@
 		811C4F151E69131F00AE47D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 811C4F131E69131F00AE47D7 /* LaunchScreen.storyboard */; };
 		811C4F201E69131F00AE47D7 /* WHSlideViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C4F1F1E69131F00AE47D7 /* WHSlideViewControllerTests.m */; };
 		811C4F2B1E69131F00AE47D7 /* WHSlideViewControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C4F2A1E69131F00AE47D7 /* WHSlideViewControllerUITests.m */; };
+		811C4F3C1E69139D00AE47D7 /* WHSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C4F3B1E69139D00AE47D7 /* WHSlideViewController.m */; };
+		811C4F3F1E69140500AE47D7 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C4F3E1E69140500AE47D7 /* UIView+Extension.m */; };
+		811C4F421E691ACD00AE47D7 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C4F411E691ACD00AE47D7 /* CenterViewController.m */; };
+		811C4F451E691ADB00AE47D7 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C4F441E691ADB00AE47D7 /* LeftViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,14 @@
 		811C4F261E69131F00AE47D7 /* WHSlideViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WHSlideViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		811C4F2A1E69131F00AE47D7 /* WHSlideViewControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHSlideViewControllerUITests.m; sourceTree = "<group>"; };
 		811C4F2C1E69131F00AE47D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		811C4F3A1E69139D00AE47D7 /* WHSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHSlideViewController.h; sourceTree = "<group>"; };
+		811C4F3B1E69139D00AE47D7 /* WHSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHSlideViewController.m; sourceTree = "<group>"; };
+		811C4F3D1E69140500AE47D7 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		811C4F3E1E69140500AE47D7 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		811C4F401E691ACD00AE47D7 /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
+		811C4F411E691ACD00AE47D7 /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
+		811C4F431E691ADB00AE47D7 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		811C4F441E691ADB00AE47D7 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +113,15 @@
 		811C4F041E69131F00AE47D7 /* WHSlideViewController */ = {
 			isa = PBXGroup;
 			children = (
+				811C4F391E69138100AE47D7 /* Slide */,
 				811C4F081E69131F00AE47D7 /* AppDelegate.h */,
 				811C4F091E69131F00AE47D7 /* AppDelegate.m */,
 				811C4F0B1E69131F00AE47D7 /* ViewController.h */,
 				811C4F0C1E69131F00AE47D7 /* ViewController.m */,
+				811C4F401E691ACD00AE47D7 /* CenterViewController.h */,
+				811C4F411E691ACD00AE47D7 /* CenterViewController.m */,
+				811C4F431E691ADB00AE47D7 /* LeftViewController.h */,
+				811C4F441E691ADB00AE47D7 /* LeftViewController.m */,
 				811C4F0E1E69131F00AE47D7 /* Main.storyboard */,
 				811C4F111E69131F00AE47D7 /* Assets.xcassets */,
 				811C4F131E69131F00AE47D7 /* LaunchScreen.storyboard */,
@@ -138,6 +155,17 @@
 				811C4F2C1E69131F00AE47D7 /* Info.plist */,
 			);
 			path = WHSlideViewControllerUITests;
+			sourceTree = "<group>";
+		};
+		811C4F391E69138100AE47D7 /* Slide */ = {
+			isa = PBXGroup;
+			children = (
+				811C4F3D1E69140500AE47D7 /* UIView+Extension.h */,
+				811C4F3E1E69140500AE47D7 /* UIView+Extension.m */,
+				811C4F3A1E69139D00AE47D7 /* WHSlideViewController.h */,
+				811C4F3B1E69139D00AE47D7 /* WHSlideViewController.m */,
+			);
+			path = Slide;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,9 +304,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				811C4F3F1E69140500AE47D7 /* UIView+Extension.m in Sources */,
 				811C4F0D1E69131F00AE47D7 /* ViewController.m in Sources */,
+				811C4F3C1E69139D00AE47D7 /* WHSlideViewController.m in Sources */,
 				811C4F0A1E69131F00AE47D7 /* AppDelegate.m in Sources */,
+				811C4F451E691ADB00AE47D7 /* LeftViewController.m in Sources */,
 				811C4F071E69131F00AE47D7 /* main.m in Sources */,
+				811C4F421E691ACD00AE47D7 /* CenterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
