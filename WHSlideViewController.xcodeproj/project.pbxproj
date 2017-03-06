@@ -546,6 +546,7 @@
 				811C4F311E69131F00AE47D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		811C4F321E69131F00AE47D7 /* Build configuration list for PBXNativeTarget "WHSlideViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -554,6 +555,7 @@
 				811C4F341E69131F00AE47D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		811C4F351E69131F00AE47D7 /* Build configuration list for PBXNativeTarget "WHSlideViewControllerUITests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +564,7 @@
 				811C4F371E69131F00AE47D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

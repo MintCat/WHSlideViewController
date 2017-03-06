@@ -8,6 +8,7 @@
 
 #import "LeftViewController.h"
 #import "ViewController.h"
+#import "WHSlideViewController.h"
 
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -42,16 +43,22 @@
     if(!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = [NSString stringWithFormat:@"第%ld项",indexPath.row+1];
     cell.detailTextLabel.text = @"push into the option";
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 64;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    WHSlideViewController *mainVc = [WHSlideViewController shareManager];
+    ViewController *vc = [[ViewController alloc]init];
+     //mainVc.centerVC = vc;
+    [mainVc closeLeftVC];
+    [(UINavigationController *)mainVc.centerVC pushViewController:vc animated:NO];
     
 }
 

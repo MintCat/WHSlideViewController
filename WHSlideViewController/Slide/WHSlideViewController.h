@@ -13,12 +13,18 @@
 
 #define DefalutMaxSlide      ScreenWidth*0.8
 
-#define DefalutAlpha         0.5
-
 @interface WHSlideViewController : UIViewController
 
-//初始化
-- (instancetype)initWithLeftVC:(UIViewController *) leftVC CenterVC:(UIViewController *) centerVC;
+//左侧视图控制器
+@property (nonatomic, strong) UIViewController          *leftVC;
+
+//中间视图控制器
+@property (nonatomic, strong) UIViewController          *centerVC;
+
+//是否在首页时允许滑动,默认是YES
+@property (nonatomic, assign) BOOL                       isCanSlide;
+
++ (WHSlideViewController *)shareManager;
 
 - (void)closeLeftVC;
 

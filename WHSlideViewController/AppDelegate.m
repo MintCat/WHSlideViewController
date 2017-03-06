@@ -24,7 +24,11 @@
     CenterViewController  *centerVC = [[CenterViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:centerVC];
     LeftViewController    *leftVC   = [[LeftViewController alloc]init];
-    WHSlideViewController *mainVC   = [[WHSlideViewController alloc]initWithLeftVC:leftVC CenterVC:nav];
+    
+    WHSlideViewController *mainVC = [WHSlideViewController shareManager];
+    mainVC.leftVC = leftVC;
+    mainVC.centerVC = nav;
+    //mainVC.isCanSlide = NO;
     
     self.window.rootViewController = mainVC;
     [self.window makeKeyAndVisible];
