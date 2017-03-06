@@ -50,8 +50,8 @@
     for(UIView *view in _leftVC.view.subviews) {
         if([view isKindOfClass:[UITableView class]]) {
             self.tableView = (UITableView *)view;
-            self.tableView.bounds = CGRectMake(0, 0, DefalutMaxSlide, ScreenHeight);
-            self.tableView.center = CGPointMake(0, ScreenHeight/2.0);
+            self.tableView.bounds = CGRectMake(0, 0, DefalutMaxSlide, self.tableView.height);
+            self.tableView.center = CGPointMake(0, self.tableView.centerY);
             break;
         }
     }
@@ -131,7 +131,7 @@
         pan.view.center = CGPointMake(newCenterX, pan.view.centerY);
         
         //改变菜单列表的中心和水平缩放
-        self.tableView.center = CGPointMake(pan.view.x/2.0, ScreenHeight/2.0);
+        self.tableView.center = CGPointMake(pan.view.x/2.0, self.tableView.centerY);
         self.tableView.transform = CGAffineTransformScale(CGAffineTransformIdentity, pan.view.x/(DefalutMaxSlide), 1);
     }
     [pan setTranslation:CGPointZero inView:self.view];
@@ -151,10 +151,10 @@
     self.closedState = YES;
     [UIView animateWithDuration:0.25 animations:^{
         //中间视图控制器中心点
-        self.centerVC.view.center = CGPointMake(ScreenWidth/2.0, ScreenHeight/2.0);
+        self.centerVC.view.center = CGPointMake(ScreenWidth/2.0, self.centerVC.view.centerY);
         
         //菜单列表中心点和水平缩放(X方向的值不能直接为0,否则视图会消失)
-        self.tableView.center = CGPointMake(0, ScreenHeight/2.0);
+        self.tableView.center = CGPointMake(0, self.tableView.centerY);
         self.tableView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1f, 1.0);
     }];
     [self.centerVC.view removeGestureRecognizer:self.tap];
@@ -172,7 +172,7 @@
         self.centerVC.view.frame = CGRectMake(DefalutMaxSlide, 0, self.centerVC.view.width, self.centerVC.view.height);
         
         //菜单列表中心点和水平缩放
-        self.tableView.center = CGPointMake(DefalutMaxSlide/2.0, ScreenHeight/2.0);
+        self.tableView.center = CGPointMake(DefalutMaxSlide/2.0, self.tableView.centerY);
         self.tableView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
     }];
     [self.centerVC.view addGestureRecognizer:self.tap];
