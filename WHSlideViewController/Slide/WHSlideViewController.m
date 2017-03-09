@@ -25,16 +25,18 @@
 
 @end
 
+static WHSlideViewController *_managerInstance = nil;
 
 @implementation WHSlideViewController
 #pragma mark 创建单例
 + (WHSlideViewController *)shareManager {
-    static WHSlideViewController *managerInstance = nil;
+
     static dispatch_once_t once_token;
     dispatch_once(&once_token, ^{
-        managerInstance = [[WHSlideViewController alloc]init];
+        _managerInstance = [[self alloc]init];
     });
-    return managerInstance;
+    
+    return _managerInstance;
 }
 
 #pragma mark 变量的setter方法
@@ -108,6 +110,8 @@
     // Do any additional setup after loading the view.
     self.closedState =  YES;
     self.isCanSlide  =  YES;
+    
+   
 }
 
 #pragma mark 滑动和点击手势处理
