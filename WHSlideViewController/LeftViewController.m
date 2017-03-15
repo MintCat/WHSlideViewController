@@ -58,7 +58,8 @@
     ViewController *vc = [[ViewController alloc]init];
      //mainVc.centerVC = vc;
     [mainVc closeLeftVC];
-    [(UINavigationController *)mainVc.centerVC pushViewController:vc animated:NO];
+    [mainVc presentNextVC:vc];
+    
     
 }
 

@@ -19,6 +19,8 @@
 		811C4F3F1E69140500AE47D7 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C4F3E1E69140500AE47D7 /* UIView+Extension.m */; };
 		811C4F421E691ACD00AE47D7 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C4F411E691ACD00AE47D7 /* CenterViewController.m */; };
 		811C4F451E691ADB00AE47D7 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811C4F441E691ADB00AE47D7 /* LeftViewController.m */; };
+		814E5E081E78CB2B00201C16 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814E5E071E78CB2B00201C16 /* SecondViewController.m */; };
+		814E5E0B1E78CB4C00201C16 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814E5E0A1E78CB4C00201C16 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,10 @@
 		811C4F411E691ACD00AE47D7 /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
 		811C4F431E691ADB00AE47D7 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		811C4F441E691ADB00AE47D7 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		814E5E061E78CB2B00201C16 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		814E5E071E78CB2B00201C16 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		814E5E091E78CB4C00201C16 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		814E5E0A1E78CB4C00201C16 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,10 @@
 				811C4F411E691ACD00AE47D7 /* CenterViewController.m */,
 				811C4F431E691ADB00AE47D7 /* LeftViewController.h */,
 				811C4F441E691ADB00AE47D7 /* LeftViewController.m */,
+				814E5E061E78CB2B00201C16 /* SecondViewController.h */,
+				814E5E071E78CB2B00201C16 /* SecondViewController.m */,
+				814E5E091E78CB4C00201C16 /* ThirdViewController.h */,
+				814E5E0A1E78CB4C00201C16 /* ThirdViewController.m */,
 				811C4F0E1E69131F00AE47D7 /* Main.storyboard */,
 				811C4F111E69131F00AE47D7 /* Assets.xcassets */,
 				811C4F131E69131F00AE47D7 /* LaunchScreen.storyboard */,
@@ -308,6 +318,8 @@
 				811C4F0D1E69131F00AE47D7 /* ViewController.m in Sources */,
 				811C4F3C1E69139D00AE47D7 /* WHSlideViewController.m in Sources */,
 				811C4F0A1E69131F00AE47D7 /* AppDelegate.m in Sources */,
+				814E5E081E78CB2B00201C16 /* SecondViewController.m in Sources */,
+				814E5E0B1E78CB4C00201C16 /* ThirdViewController.m in Sources */,
 				811C4F451E691ADB00AE47D7 /* LeftViewController.m in Sources */,
 				811C4F071E69131F00AE47D7 /* main.m in Sources */,
 				811C4F421E691ACD00AE47D7 /* CenterViewController.m in Sources */,
@@ -386,7 +398,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -408,6 +421,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -433,7 +447,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -448,6 +463,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -457,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2ZH9UD9N4A;
 				INFOPLIST_FILE = WHSlideViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -469,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2ZH9UD9N4A;
 				INFOPLIST_FILE = WHSlideViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

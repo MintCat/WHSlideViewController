@@ -30,4 +30,6 @@
 
 - (void)openLeftVC;
 
+- (void)presentNextVC:(UIViewController *) vc;
+
 @end

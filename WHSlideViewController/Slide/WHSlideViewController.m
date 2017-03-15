@@ -117,8 +117,16 @@ static WHSlideViewController *_managerInstance = nil;
 #pragma mark 滑动和点击手势处理
 - (void)handlerPan:(UIPanGestureRecognizer *) pan {
     //滑动前,判断导航控制器的视图控制器个数是否大于1,是则不能滑动
-    UINavigationController *tempNav = (UINavigationController *)self.centerVC;
-    if([tempNav isKindOfClass:[UINavigationController class]]&&tempNav.viewControllers.count > 1) {
+    UINavigationController *tempNav;
+    if([self.centerVC isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tempTabbarVC = (UITabBarController *)self.centerVC;
+        if([tempTabbarVC.selectedViewController isKindOfClass:[UINavigationController class]]) {
+            tempNav = (UINavigationController *)tempTabbarVC.selectedViewController;
+        }
+    }else if([self.centerVC isKindOfClass:[UINavigationController class]]) {
+        tempNav = (UINavigationController *)self.centerVC;
+    }
+    if(tempNav&&tempNav.viewControllers.count > 1) {
         return;
     }
     
@@ -184,6 +192,25 @@ static WHSlideViewController *_managerInstance = nil;
     //因为手势盖不住button的响应事件,所以做特殊处理
     for(UIButton *button in self.centerVC.view.subviews) {
         button.enabled = NO;
+    }
+}
+
+#pragma mark 根据不同的中心视图控制器推出下一视图控制器
+- (void)presentNextVC:(UIViewController *) vc {
+    if([self.centerVC isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabbarVC = (UITabBarController *)self.centerVC;
+        vc.hidesBottomBarWhenPushed = YES;
+        if([tabbarVC.selectedViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *tempNav = (UINavigationController *)tabbarVC.selectedViewController;
+            [tempNav pushViewController:vc animated:NO];
+        }else {
+            [tabbarVC.selectedViewController presentViewController:vc animated:NO completion:nil];
+        }
+    }else if ([self.centerVC isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *tempNav = (UINavigationController *)self.centerVC;
+        [tempNav pushViewController:vc animated:NO];
+    }else {
+        [self.centerVC presentViewController:vc animated:NO completion:nil];
     }
 }
 

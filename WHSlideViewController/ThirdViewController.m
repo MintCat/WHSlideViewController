@@ -1,34 +1,24 @@
 //
-//  CenterViewController.m
+//  ThirdViewController.m
 //  WHSlideViewController
 //
-//  Created by ios on 2017/3/3.
+//  Created by ios on 2017/3/15.
 //  Copyright © 2017年 c. All rights reserved.
 //
 
-#import "CenterViewController.h"
-#import "ViewController.h"
-#import "WHSlideViewController.h"
+#import "ThirdViewController.h"
 
-@interface CenterViewController ()
+@interface ThirdViewController ()
 
 @end
 
-@implementation CenterViewController
+@implementation ThirdViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"主视图";
-    
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"菜单" style:UIBarButtonItemStylePlain target:self action:@selector(menu:)];
-    self.navigationItem.leftBarButtonItem = item;
-
-}
-
-- (void)menu:(UIBarButtonItem *) item {
-    [[WHSlideViewController shareManager] openLeftVC];
+    self.title = @"third";
 }
 
 - (void)didReceiveMemoryWarning {

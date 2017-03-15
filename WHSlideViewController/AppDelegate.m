@@ -10,6 +10,8 @@
 #import "CenterViewController.h"
 #import "LeftViewController.h"
 #import "WHSlideViewController.h"
+#import "SecondViewController.h"
+#import "ThirdViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,14 +22,36 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    CenterViewController  *centerVC = [[CenterViewController alloc]init];
+
+    CenterViewController *centerVC = [[CenterViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:centerVC];
-    LeftViewController    *leftVC   = [[LeftViewController alloc]init];
+    nav.tabBarItem.title = @"first";
+    
+    SecondViewController *secondVC = [[SecondViewController alloc]init];
+    UINavigationController *secondNav = [[UINavigationController alloc]initWithRootViewController:secondVC];
+    secondNav.tabBarItem.title = @"second";
+    
+    ThirdViewController *thirdVC = [[ThirdViewController alloc]init];
+    UINavigationController *thirdNav = [[UINavigationController alloc]initWithRootViewController:thirdVC];
+    thirdNav.tabBarItem.title = @"third";
+    
+    UITabBarController *tabbarVC = [[UITabBarController alloc]init];
+    tabbarVC.view.backgroundColor = [UIColor whiteColor];//防止返回时导航栏出现阴影
+    [tabbarVC addChildViewController:nav];
+    [tabbarVC addChildViewController:secondNav];
+    [tabbarVC addChildViewController:thirdNav];
+
+    
+#if 0
+    CenterViewController *vc = [[CenterViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+#endif
+    
+    LeftViewController *leftVC   = [[LeftViewController alloc]init];
     
     WHSlideViewController *mainVC = [WHSlideViewController shareManager];
     mainVC.leftVC = leftVC;
-    mainVC.centerVC = nav;
+    mainVC.centerVC = tabbarVC;
     //mainVC.isCanSlide = NO;
     
     self.window.rootViewController = mainVC;
