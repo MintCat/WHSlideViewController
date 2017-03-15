@@ -23,6 +23,9 @@
 //菜单视图控制器里的列表
 @property (nonatomic, weak)   UITableView               *tableView;
 
+//中心视图控制器中的导航控制器
+@property (nonatomic, weak)   UINavigationController    *nav;
+
 @end
 
 static WHSlideViewController *_managerInstance = nil;
@@ -110,23 +113,14 @@ static WHSlideViewController *_managerInstance = nil;
     // Do any additional setup after loading the view.
     self.closedState =  YES;
     self.isCanSlide  =  YES;
-    
-   
+
 }
 
 #pragma mark 滑动和点击手势处理
 - (void)handlerPan:(UIPanGestureRecognizer *) pan {
     //滑动前,判断导航控制器的视图控制器个数是否大于1,是则不能滑动
-    UINavigationController *tempNav;
-    if([self.centerVC isKindOfClass:[UITabBarController class]]) {
-        UITabBarController *tempTabbarVC = (UITabBarController *)self.centerVC;
-        if([tempTabbarVC.selectedViewController isKindOfClass:[UINavigationController class]]) {
-            tempNav = (UINavigationController *)tempTabbarVC.selectedViewController;
-        }
-    }else if([self.centerVC isKindOfClass:[UINavigationController class]]) {
-        tempNav = (UINavigationController *)self.centerVC;
-    }
-    if(tempNav&&tempNav.viewControllers.count > 1) {
+    if(self.nav&&self.nav.viewControllers.count > 1) {
+        self.nav = nil;
         return;
     }
     
@@ -197,18 +191,11 @@ static WHSlideViewController *_managerInstance = nil;
 
 #pragma mark 根据不同的中心视图控制器推出下一视图控制器
 - (void)presentNextVC:(UIViewController *) vc {
-    if([self.centerVC isKindOfClass:[UITabBarController class]]) {
-        UITabBarController *tabbarVC = (UITabBarController *)self.centerVC;
+    
+    if(self.nav) {
         vc.hidesBottomBarWhenPushed = YES;
-        if([tabbarVC.selectedViewController isKindOfClass:[UINavigationController class]]) {
-            UINavigationController *tempNav = (UINavigationController *)tabbarVC.selectedViewController;
-            [tempNav pushViewController:vc animated:NO];
-        }else {
-            [tabbarVC.selectedViewController presentViewController:vc animated:NO completion:nil];
-        }
-    }else if ([self.centerVC isKindOfClass:[UINavigationController class]]) {
-        UINavigationController *tempNav = (UINavigationController *)self.centerVC;
-        [tempNav pushViewController:vc animated:NO];
+        [self.nav pushViewController:vc animated:NO];
+        self.nav = nil;
     }else {
         [self.centerVC presentViewController:vc animated:NO completion:nil];
     }
@@ -232,6 +219,15 @@ static WHSlideViewController *_managerInstance = nil;
         _tap.cancelsTouchesInView = YES;
     }
     return _tap;
+}
+
+- (UINavigationController *)nav {
+    if(!_nav) {
+        UITabBarController *tabbarVC = [self.centerVC isKindOfClass:[UITabBarController class]]?(UITabBarController *)self.centerVC:nil;
+        
+        _nav = tabbarVC&&[tabbarVC.selectedViewController isKindOfClass:[UINavigationController class]]?(UINavigationController *)tabbarVC.selectedViewController:[self.centerVC isKindOfClass:[UINavigationController class]]?(UINavigationController *)self.centerVC:nil;
+    }
+    return _nav;
 }
 
 - (void)didReceiveMemoryWarning {
